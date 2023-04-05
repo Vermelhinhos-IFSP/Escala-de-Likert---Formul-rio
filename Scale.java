@@ -6,38 +6,44 @@ class Main {
     int atendimento = 0;
     int pontualidade = 0;
     int qualidade = 0;
-    int avaliacaoGeral = 0;
     int xp = 0;
-    String comentario = "";
 
-    System.out.println("\nEscala de avaliacao:\n-2 = >:( \n-1 = :( \n 0 = :| \n 1 = :) \n 2 = :D \n\nPesquisa de satisfacao:\n");
+    System.out.println("\nEscala de avaliação:\n-2 = >:( \n-1 = :( \n 0 = :| \n 1 = :) \n 2 = :D \n\nPesquisa de satisfação:\n");
     
-    System.out.println("O atendimento do funcionario foi cordial e atencioso?");
+    System.out.println("O atendimento do funcionário foi cordial e atencioso?");
     atendimento = Scan.nextInt();
     xp += atendimento;
     
-    System.out.println("Quanto ao tempo para a chegada do funcionario, o que lhe pareceu?");
+    System.out.println("Quanto ao tempo para a chegada do funcionário, o que lhe pareceu?");
     pontualidade = Scan.nextInt();
     xp += pontualidade;
     
-    System.out.println("O servico realizado foi bem feito?");
+    System.out.println("O serviço realizado foi bem feito?");
     qualidade = Scan.nextInt();
     xp += qualidade;
-
-    System.out.println("Avaliacao geral do serviço");
-    avaliacaoGeral = Scan.nextInt();
-    xp += avaliacaoGeral;
     
-    System.out.println("O que aconteceu?");
-    comentario = Scan.next();
-    
-    System.out.println("\n\nResultado:\n");
+    System.out.println("\nResultado:\n");
     System.out.println("Atendimento: " + resultado(atendimento));
-    System.out.println("pontualidade: " + resultado(pontualidade));
-    System.out.println("qualidade: " + resultado(qualidade));
-    System.out.println("Avaliacao Geral: " + resultado(avaliacaoGeral));
-    System.out.println("Comentario: " + comentario);
-    System.out.println("Experiencia concedida ao funcionario: " + xp + " xp");
+    System.out.println("Pontualidade: " + resultado(pontualidade));
+    System.out.println("Qualidade: " + resultado(qualidade));
+    System.out.println("Experiência concedida ao funcionário: " + xp + " xp");
+
+    if(xp < 0) {
+      int avaliacaoGeral = 0;
+      String comentario = "";
+      
+      System.out.println("\nPesquisa de satisfação:\n");
+
+      System.out.println("Avaliação geral do serviço");
+      avaliacaoGeral = Scan.nextInt();
+    
+      System.out.println("O que aconteceu?");
+      comentario = Scan.next();
+    
+      System.out.println("\n\nResultado:\n");
+      System.out.println("Avaliação Geral: " + resultado(avaliacaoGeral));
+      System.out.println("Comentário: " + comentario);
+    }
     
     Scan.close();
   }
@@ -46,10 +52,10 @@ class Main {
     String resultado = "";
 
     if(avaliacao == -2) {
-      resultado = "*Carinha Brava* >:(";
+      resultado = "*Carinha Brava* >:()";
     } 
     if(avaliacao == -1) {
-      resultado = "*Carinha Triste* :(";
+      resultado = "*Carinha Triste* :()";
     }
     if(avaliacao == 0) {
       resultado = "*Carinha Neutra* :|";
@@ -60,6 +66,7 @@ class Main {
     if(avaliacao == 2) {
       resultado = "*Carinha Feliz* :D";
     }
+
     return resultado;
   }
 }
