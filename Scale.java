@@ -22,7 +22,7 @@ class Main {
     System.out.println("O serviço realizado foi bem feito?");
     qualidade = Scan.nextInt();
     xp += qualidade;
-    avaliacaoGeral = xp;
+    avaliacaoGeral = xp / 3;
     
     System.out.println("\n\nResultado:\n");
     System.out.println("Atendimento: " + resultado(atendimento));
@@ -50,19 +50,19 @@ class Main {
   public static String resultado(int avaliacao) {
     String resultado = "";
 
-    if(avaliacao <= -2) {
-      resultado = "*Carinha Brava* >:()";
+    if(avaliacao == -2 || avaliacao < -1.5) {
+      resultado = "*Carinha Brava* >:(";
     } 
-    if(avaliacao == -1) {
-      resultado = "*Carinha Triste* :()";
+    if(avaliacao > -2 && avaliacao < -0.5) {
+      resultado = "*Carinha Triste* :(";
     }
-    if(avaliacao == 0) {
+    if(avaliacao > -0.5 && avaliacao < 0.5) {
       resultado = "*Carinha Neutra* :|";
     }
-    if(avaliacao == 1) {
+    if(avaliacao > 0.5 && avaliacao < 1.5) {
       resultado = "*Carinha Satisfatoria* :)";
     }
-    if(avaliacao >= 2) {
+    if(avaliacao == 2 || avaliacao > 1.5) {
       resultado = "*Carinha Feliz* :D";
     }
     
